@@ -76,6 +76,7 @@ const systems = [
     body: "Direct grid-tie configuration with two-directional smart metering. Surplus energy is exported under the Smart Export Guarantee — the lowest-cost route to renewable generation.",
     components: ["KOVentus turbine", "Grid-tie inverter", "Two-directional smart meter", "AC/DC protection", "Optional solar PV"],
     perks: ["Lowest system cost", "No batteries required", "SEG export payments eligible"],
+    diagram: diagramOnGrid,
   },
   {
     tag: "02 — Off-Grid",
@@ -84,6 +85,7 @@ const systems = [
     body: "Complete autonomy from the national grid. Battery storage captures every kilowatt-hour generated — ideal for rural, recreational and remote infrastructure.",
     components: ["KOVentus turbine", "Charge controller", "Battery bank", "Optional inverter / PV / generator"],
     perks: ["Full energy independence", "Reliable in remote sites", "Year-round generation"],
+    diagram: diagramOffGrid,
   },
   {
     tag: "03 — Hybrid",
@@ -92,6 +94,7 @@ const systems = [
     body: "The best of both worlds. Hybrid inverter intelligently routes power between batteries, grid and load — supports peak-shaving and load-shifting for public-sector buildings.",
     components: ["KOVentus turbine", "Hybrid inverter", "Battery storage", "Grid connection", "Optional solar PV"],
     perks: ["Grid-failure resilience", "Peak-shaving capability", "Optimal for public sector"],
+    diagram: diagramHybridGrid,
   },
 ];
 
@@ -302,7 +305,10 @@ function Brochure() {
                   <span className="text-xs tracking-widest text-accent">{s.tag}</span>
                   <span className="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-accent/20 text-accent border border-accent/30">{s.badge}</span>
                 </div>
-                <h3 className="mt-4 text-2xl text-white">{s.title}</h3>
+                <div className="mt-5 rounded-xl bg-white p-3 flex items-center justify-center h-44">
+                  <img src={s.diagram} alt={`${s.title} schematic diagram`} loading="lazy" className="max-h-full w-auto object-contain" />
+                </div>
+                <h3 className="mt-5 text-2xl text-white">{s.title}</h3>
                 <p className="mt-3 text-sm text-white/70 leading-relaxed">{s.body}</p>
                 <div className="mt-6 pt-6 border-t border-white/10">
                   <div className="text-[10px] uppercase tracking-widest text-white/50 mb-3">Components</div>
