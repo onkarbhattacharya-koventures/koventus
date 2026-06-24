@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-turbine.jpg";
 import fieldImg from "@/assets/turbine-field.jpg";
 import hybridImg from "@/assets/hybrid-system.jpg";
+import diagramOnGrid from "@/assets/diagram-ongrid.png";
+import diagramOffGrid from "@/assets/diagram-offgrid.png";
+import diagramHybridGrid from "@/assets/diagram-hybrid-grid.png";
 import {
   Wind, Leaf, Zap, ShieldCheck, Thermometer, Volume2, Gauge, Settings,
   Building2, Home, Tractor, GraduationCap, HeartPulse, Radio, BatteryCharging,
