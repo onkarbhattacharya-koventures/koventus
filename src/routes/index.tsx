@@ -429,9 +429,13 @@ function Brochure() {
                 </a>
               </div>
             </div>
+            <div className="relative mt-10 pt-10 border-t border-white/15">
+              <EnquiryForm />
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* FOOTER */}
       <footer className="border-t border-border py-10">
