@@ -407,8 +407,8 @@ function Brochure() {
               </div>
               <div className="space-y-4">
                 {[
-                  { icon: Mail, label: "Email", value: "hello@koventures.co.uk" },
-                  { icon: Phone, label: "Telephone", value: "+44 (0) 20 0000 0000" },
+                  { icon: Mail, label: "Email", value: "contact@koventures.co.uk" },
+                  { icon: Phone, label: "Telephone", value: "+44 07380123266" },
                   { icon: MapPin, label: "Headquarters", value: "United Kingdom" },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-center gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
@@ -421,7 +421,7 @@ function Brochure() {
                     </div>
                   </div>
                 ))}
-                <a href="mailto:hello@koventures.co.uk" className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition">
+                <a href="mailto:contact@koventures.co.uk" className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition">
                   Request a quote <ArrowRight className="size-4" />
                 </a>
               </div>
