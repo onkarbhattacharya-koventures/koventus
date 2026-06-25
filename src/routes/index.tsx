@@ -137,9 +137,6 @@ function Brochure() {
             <a href="#productivity" className="hover:text-foreground transition">Productivity</a>
             <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </nav>
-          <a href="#contact" className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition">
-            Request quote <ArrowRight className="size-3.5" />
-          </a>
         </div>
       </header>
 
