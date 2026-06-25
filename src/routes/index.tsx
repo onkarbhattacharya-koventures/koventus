@@ -421,9 +421,6 @@ function Brochure() {
                     </div>
                   </div>
                 ))}
-                <a href="mailto:contact@koventures.co.uk" className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition">
-                  Request a quote <ArrowRight className="size-4" />
-                </a>
               </div>
             </div>
             <div className="relative mt-10 pt-10 border-t border-white/15">
