@@ -137,9 +137,6 @@ function Brochure() {
             <a href="#productivity" className="hover:text-foreground transition">Productivity</a>
             <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </nav>
-          <a href="#contact" className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition">
-            Request quote <ArrowRight className="size-3.5" />
-          </a>
         </div>
       </header>
 
@@ -424,9 +421,6 @@ function Brochure() {
                     </div>
                   </div>
                 ))}
-                <a href="mailto:contact@koventures.co.uk" className="inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition">
-                  Request a quote <ArrowRight className="size-4" />
-                </a>
               </div>
             </div>
             <div className="relative mt-10 pt-10 border-t border-white/15">
