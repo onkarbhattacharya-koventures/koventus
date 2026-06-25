@@ -480,3 +480,165 @@ function SpecTable({ spec }: { spec: { headers: string[]; rows: string[][] } }) 
     </div>
   );
 }
+
+const enquirySchema = z.object({
+  name: z.string().trim().min(2, "Please enter your full name").max(100, "Name is too long"),
+  email: z.string().trim().email("Please enter a valid email address").max(255),
+  phone: z
+    .string()
+    .trim()
+    .min(7, "Please enter a valid phone number")
+    .max(20, "Phone number is too long")
+    .regex(/^[+\d][\d\s()-]{5,}$/, "Phone may contain digits, spaces, +, -, ()"),
+  company: z.string().trim().max(120).optional().or(z.literal("")),
+  message: z
+    .string()
+    .trim()
+    .min(10, "Please provide at least 10 characters")
+    .max(1500, "Message must be under 1500 characters"),
+});
+
+type EnquiryFields = z.infer<typeof enquirySchema>;
+type EnquiryErrors = Partial<Record<keyof EnquiryFields, string>>;
+
+function EnquiryForm() {
+  const [values, setValues] = useState<EnquiryFields>({
+    name: "", email: "", phone: "", company: "", message: "",
+  });
+  const [errors, setErrors] = useState<EnquiryErrors>({});
+  const [submitting, setSubmitting] = useState(false);
+
+  const update = (k: keyof EnquiryFields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setValues((v) => ({ ...v, [k]: e.target.value }));
+    if (errors[k]) setErrors((er) => ({ ...er, [k]: undefined }));
+  };
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const result = enquirySchema.safeParse(values);
+    if (!result.success) {
+      const next: EnquiryErrors = {};
+      for (const issue of result.error.issues) {
+        const key = issue.path[0] as keyof EnquiryFields;
+        if (!next[key]) next[key] = issue.message;
+      }
+      setErrors(next);
+      toast.error("Please fix the highlighted fields.");
+      return;
+    }
+    setSubmitting(true);
+    const v = result.data;
+    const subject = `KOVentus enquiry from ${v.name}`;
+    const body =
+      `Name: ${v.name}\n` +
+      `Email: ${v.email}\n` +
+      `Phone: ${v.phone}\n` +
+      `Company: ${v.company || "—"}\n\n` +
+      `Message:\n${v.message}\n`;
+    const href = `mailto:contact@koventures.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+    toast.success("Opening your email client to send the enquiry…");
+    setTimeout(() => setSubmitting(false), 800);
+  };
+
+  const fieldBase =
+    "w-full px-4 py-3 rounded-xl bg-white/5 border text-white placeholder-white/40 outline-none transition focus:bg-white/10";
+  const ok = "border-white/15 focus:border-accent";
+  const bad = "border-red-400/70 focus:border-red-400";
+
+  return (
+    <form onSubmit={onSubmit} noValidate className="grid lg:grid-cols-2 gap-5">
+      <div className="lg:col-span-2">
+        <h3 className="text-2xl text-white">Send an enquiry</h3>
+        <p className="text-white/70 text-sm mt-1">We&apos;ll route your message to contact@koventures.co.uk.</p>
+      </div>
+
+      <Field label="Full name" error={errors.name} required>
+        <input
+          type="text"
+          value={values.name}
+          onChange={update("name")}
+          aria-invalid={!!errors.name}
+          className={`${fieldBase} ${errors.name ? bad : ok}`}
+          placeholder="Jane Smith"
+          maxLength={100}
+        />
+      </Field>
+
+      <Field label="Email" error={errors.email} required>
+        <input
+          type="email"
+          value={values.email}
+          onChange={update("email")}
+          aria-invalid={!!errors.email}
+          className={`${fieldBase} ${errors.email ? bad : ok}`}
+          placeholder="jane@company.co.uk"
+          maxLength={255}
+        />
+      </Field>
+
+      <Field label="Phone" error={errors.phone} required>
+        <input
+          type="tel"
+          value={values.phone}
+          onChange={update("phone")}
+          aria-invalid={!!errors.phone}
+          className={`${fieldBase} ${errors.phone ? bad : ok}`}
+          placeholder="+44 7380 123 266"
+          maxLength={20}
+        />
+      </Field>
+
+      <Field label="Company (optional)" error={errors.company}>
+        <input
+          type="text"
+          value={values.company}
+          onChange={update("company")}
+          className={`${fieldBase} ${errors.company ? bad : ok}`}
+          placeholder="KOVentures Ltd"
+          maxLength={120}
+        />
+      </Field>
+
+      <div className="lg:col-span-2">
+        <Field label="Message" error={errors.message} required>
+          <textarea
+            value={values.message}
+            onChange={update("message")}
+            aria-invalid={!!errors.message}
+            rows={5}
+            className={`${fieldBase} ${errors.message ? bad : ok} resize-y min-h-[140px]`}
+            placeholder="Tell us about your site, expected load, and timeline…"
+            maxLength={1500}
+          />
+        </Field>
+      </div>
+
+      <div className="lg:col-span-2 flex items-center justify-between gap-4 flex-wrap">
+        <p className="text-xs text-white/50">By submitting you agree to be contacted about your enquiry.</p>
+        <button
+          type="submit"
+          disabled={submitting}
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition disabled:opacity-60"
+        >
+          {submitting ? "Sending…" : "Send enquiry"} <ArrowRight className="size-4" />
+        </button>
+      </div>
+    </form>
+  );
+}
+
+function Field({
+  label, error, required, children,
+}: { label: string; error?: string; required?: boolean; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="text-xs uppercase tracking-widest text-white/60">
+        {label}{required && <span className="text-accent ml-1">*</span>}
+      </span>
+      <div className="mt-2">{children}</div>
+      {error && <span className="mt-1.5 block text-xs text-red-300">{error}</span>}
+    </label>
+  );
+}
+
