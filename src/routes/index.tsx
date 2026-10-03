@@ -8,6 +8,7 @@ import hybridImg from "@/assets/hybrid-system.jpg";
 import diagramOnGrid from "@/assets/diagram-ongrid.png";
 import diagramOffGrid from "@/assets/diagram-offgrid.png";
 import diagramHybridGrid from "@/assets/diagram-hybrid-grid.png";
+import logoImg from "@/assets/logo.png";
 import {
   Wind, Leaf, Zap, ShieldCheck, Thermometer, Volume2, Gauge, Settings,
   Building2, Home, Tractor, GraduationCap, HeartPulse, Radio, BatteryCharging,
@@ -124,11 +125,9 @@ function Brochure() {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/60">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-2">
-            <div className="size-8 rounded-md bg-[image:var(--gradient-accent)] grid place-items-center">
-              <Wind className="size-4 text-primary" />
-            </div>
-            <span className="font-display text-xl tracking-tight">KOV<span className="text-accent">entus</span></span>
+          <a href="#top" className="flex items-center gap-3">
+            <img src={logoImg} alt="KOEnergy Clean Energy Solutions logo" className="h-10 w-auto" />
+            <span className="font-display text-xl tracking-tight">KO<span className="text-accent">Energy</span></span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#range" className="hover:text-foreground transition">Range</a>
