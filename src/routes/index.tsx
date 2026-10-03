@@ -8,6 +8,7 @@ import hybridImg from "@/assets/hybrid-system.jpg";
 import diagramOnGrid from "@/assets/diagram-ongrid.png";
 import diagramOffGrid from "@/assets/diagram-offgrid.png";
 import diagramHybridGrid from "@/assets/diagram-hybrid-grid.png";
+import logoImg from "@/assets/logo.png";
 import {
   Wind, Leaf, Zap, ShieldCheck, Thermometer, Volume2, Gauge, Settings,
   Building2, Home, Tractor, GraduationCap, HeartPulse, Radio, BatteryCharging,
@@ -77,7 +78,7 @@ const systems = [
     title: "On-Grid System",
     badge: "SEG-Compatible",
     body: "Direct grid-tie configuration with two-directional smart metering. Surplus energy is exported under the Smart Export Guarantee — the lowest-cost route to renewable generation.",
-    components: ["KOVentus turbine", "Grid-tie inverter", "Two-directional smart meter", "AC/DC protection", "Optional solar PV"],
+    components: ["KOEnergy turbine", "Grid-tie inverter", "Two-directional smart meter", "AC/DC protection", "Optional solar PV"],
     perks: ["Lowest system cost", "No batteries required", "SEG export payments eligible"],
     diagram: diagramOnGrid,
   },
@@ -86,7 +87,7 @@ const systems = [
     title: "Off-Grid System",
     badge: "Energy Independence",
     body: "Complete autonomy from the national grid. Battery storage captures every kilowatt-hour generated — ideal for rural, recreational and remote infrastructure.",
-    components: ["KOVentus turbine", "Charge controller", "Battery bank", "Optional inverter / PV / generator"],
+    components: ["KOEnergy turbine", "Charge controller", "Battery bank", "Optional inverter / PV / generator"],
     perks: ["Full energy independence", "Reliable in remote sites", "Year-round generation"],
     diagram: diagramOffGrid,
   },
@@ -95,7 +96,7 @@ const systems = [
     title: "On/Off-Grid Hybrid",
     badge: "Maximum Resilience",
     body: "The best of both worlds. Hybrid inverter intelligently routes power between batteries, grid and load — supports peak-shaving and load-shifting for public-sector buildings.",
-    components: ["KOVentus turbine", "Hybrid inverter", "Battery storage", "Grid connection", "Optional solar PV"],
+    components: ["KOEnergy turbine", "Hybrid inverter", "Battery storage", "Grid connection", "Optional solar PV"],
     perks: ["Grid-failure resilience", "Peak-shaving capability", "Optimal for public sector"],
     diagram: diagramHybridGrid,
   },
@@ -124,11 +125,9 @@ function Brochure() {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/60">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-2">
-            <div className="size-8 rounded-md bg-[image:var(--gradient-accent)] grid place-items-center">
-              <Wind className="size-4 text-primary" />
-            </div>
-            <span className="font-display text-xl tracking-tight">KOV<span className="text-accent">entus</span></span>
+          <a href="#top" className="flex items-center gap-3">
+            <img src={logoImg} alt="KOEnergy Clean Energy Solutions logo" className="h-10 w-auto" />
+            <span className="font-display text-xl tracking-tight">KO<span className="text-accent">Energy</span></span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#range" className="hover:text-foreground transition">Range</a>
@@ -155,7 +154,7 @@ function Brochure() {
               <span className="italic font-normal text-accent">vertically reimagined.</span>
             </h1>
             <p className="mt-8 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
-              KOVentus is the flagship vertical-axis wind turbine range from KOVentures Ltd — quietly delivering reliable, low-maintenance clean power to homes, estates, schools, and infrastructure across the United Kingdom.
+              KOEnergy is the flagship vertical-axis wind turbine range from KOVentures Ltd — quietly delivering reliable, low-maintenance clean power to homes, estates, schools, and infrastructure across the United Kingdom.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a href="#range" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:opacity-90 transition shadow-[var(--shadow-elegant)]">
@@ -196,7 +195,7 @@ function Brochure() {
               KOVentures Ltd is a UK-based provider of advanced renewable energy systems, specialising in high-performance vertical axis wind turbines (VAWTs) engineered for the United Kingdom&apos;s diverse and often turbulent wind environment.
             </p>
             <p>
-              The KOVentus range is built on European engineering principles, incorporating high-quality materials, robust mechanical design and performance characteristics validated across global wind conditions — particularly suited to the UK&apos;s inland and semi-urban wind profiles.
+              The KOEnergy range is built on European engineering principles, incorporating high-quality materials, robust mechanical design and performance characteristics validated across global wind conditions — particularly suited to the UK&apos;s inland and semi-urban wind profiles.
             </p>
           </div>
         </div>
@@ -217,7 +216,7 @@ function Brochure() {
       <section className="py-24 lg:py-32 bg-secondary/40">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="max-w-2xl">
-            <span className="text-xs uppercase tracking-widest text-accent font-semibold">Why KOVentus</span>
+            <span className="text-xs uppercase tracking-widest text-accent font-semibold">Why KOEnergy</span>
             <h2 className="mt-4 text-4xl md:text-5xl">Engineered to outlast the British weather.</h2>
           </div>
           <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -243,7 +242,7 @@ function Brochure() {
               <h2 className="mt-4 text-4xl md:text-5xl">From rooftop to estate.</h2>
               <p className="mt-4 text-muted-foreground text-lg">Two product families spanning 100W to 50kW — every configuration uses the same H-type vertical-axis architecture with a permanent magnet generator.</p>
             </div>
-            <img src={fieldImg} alt="KOVentus vertical axis wind turbine in a UK field" loading="lazy" width={1024} height={1024} className="rounded-2xl w-full md:w-80 h-56 object-cover" />
+            <img src={fieldImg} alt="KOEnergy vertical axis wind turbine in a UK field" loading="lazy" width={1024} height={1024} className="rounded-2xl w-full md:w-80 h-56 object-cover" />
           </div>
 
           {/* Small */}
@@ -356,7 +355,7 @@ function Brochure() {
             <div className="max-w-2xl">
               <span className="text-xs uppercase tracking-widest text-accent font-semibold">Productivity Analysis</span>
               <h2 className="mt-4 text-4xl md:text-5xl">Real-world generation by location.</h2>
-              <p className="mt-4 text-muted-foreground">Typical annual energy yield and CO₂ savings for a 5kW KOVentus turbine at 15m hub height.</p>
+              <p className="mt-4 text-muted-foreground">Typical annual energy yield and CO₂ savings for a 5kW KOEnergy turbine at 15m hub height.</p>
             </div>
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground px-3 py-2 rounded-full border border-border bg-card">
               <Sun className="size-3.5 text-accent" /> Weibull k = 2.6 · Roughness Class 1
@@ -436,7 +435,7 @@ function Brochure() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Wind className="size-4 text-accent" />
-            <span>© {new Date().getFullYear()} KOVentures Ltd — KOVentus™ Vertical Axis Wind Turbines</span>
+            <span>© {new Date().getFullYear()} KOVentures Ltd — KOEnergy™ Vertical Axis Wind Turbines</span>
           </div>
           <div className="flex items-center gap-2">
             <Leaf className="size-3.5 text-accent" />
@@ -522,7 +521,7 @@ function EnquiryForm() {
     }
     setSubmitting(true);
     const v = result.data;
-    const subject = `KOVentus enquiry from ${v.name}`;
+    const subject = `KOEnergy enquiry from ${v.name}`;
     const body =
       `Name: ${v.name}\n` +
       `Email: ${v.email}\n` +
