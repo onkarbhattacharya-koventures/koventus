@@ -1,8 +1,8 @@
-# KOVentus — Vertical Axis Wind Turbine Brochure Site
+# KOEnergy — Vertical Axis Wind Turbine Brochure Site
 
-A production-ready, single-page commercial brochure and product catalogue for **KOVentures Ltd** (trading as **KOVentus**), a UK-based provider of Vertical Axis Wind Turbines (VAWTs) for commercial, industrial, and public sector customers working toward Net Zero targets.
+A production-ready, single-page commercial brochure and product catalogue for **KOVentures Ltd** (trading as **KOEnergy**), a UK-based provider of Vertical Axis Wind Turbines (VAWTs) for commercial, industrial, and public sector customers working toward Net Zero targets.
 
-The site presents the full KOVentus product range, technical specifications, system configurations (on-grid, off-grid, hybrid), mounting options, UK-wide productivity analysis, and a validated customer enquiry form.
+The site presents the full KOEnergy product range, technical specifications, system configurations (on-grid, off-grid, hybrid), mounting options, UK-wide productivity analysis, and a validated customer enquiry form.
 
 ---
 
@@ -29,7 +29,7 @@ The site presents the full KOVentus product range, technical specifications, sys
 
 | | |
 |---|---|
-| **Product** | KOVentus VAWT brochure / product catalogue |
+| **Product** | KOEnergy VAWT brochure / product catalogue |
 | **Company** | KOVentures Ltd, United Kingdom |
 | **Type** | Single-page marketing site (SSR-ready SPA) |
 | **Audience** | Commercial, industrial, and public sector buyers |
